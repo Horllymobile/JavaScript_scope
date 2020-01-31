@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script>
+        //The first scope function
+        function showScope() {
+            return scope;
+        }
+        var scope = "global";
+        console.log(scope); // displays "global"
+        console.log(showScope()); // displays "global"
+
+
+        //The first test on the scope funtion
+        console.log(showScope()); 
+        function showScope() {
+            return scope;
+        }
+        console.log(showScope()); 
+        let scope = "global";
+        console.log(scope);
+        console.log(showScope());/*
+            Uncaught ReferenceError: Cannot access 
+            'scope' before initialization
+            at showScope (<anonymous>:3:13)
+            at <anonymous>:1:13
+        */
+
+
+
+        // The second test on the scope function
+        var scope = "global";
+        function showScope() {
+            var scope = "local";
+            return scope;
+            }
+            
+            console.log(showScope()); // displays "local"
+            console.log(scope); // displays "global"
+
+        //The third test on the scope function
+        function showScope() {
+            let scope = "local";
+            return scope;
+        }
+        let scope = "global";
+        console.log(showScope()); // displays "local"
+        console.log(scope); // displays "global"
+
+
+
+        //The fourth test on the scope function
+        let scope = "global";
+        function showScope() {
+            let scope = "local";
+            return scope;
+        }
+            
+        console.log(showScope()); // displays "local"
+        console.log(scope); // displays "global"
+            
+        //The fifth test on the scope function
+        const scope = "global";
+        function showScope() {
+            let scope = "local";
+            return scope;
+        }
+            
+        console.log(showScope()); // displays "local"
+        console.log(scope); // displays "global"
+
+        //test yours and add created @ Plunex
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
